@@ -1,0 +1,140 @@
+<html>
+  <head>
+    <style>
+      @import url(style.css);
+      p.highlight {
+        color: red;
+      }
+
+      .ship {
+        fill: orangered;
+      }
+
+      /* .hidden {
+        visibility: hidden;
+      } */
+
+      .booster {
+        fill: rebeccapurple;
+      }
+
+      .bullet {
+        fill: pink;
+      }
+
+      .rock {
+        fill: plum;
+      }
+
+      .key {
+        width: 18px;
+        text-align: center;
+        border-radius: 3px;
+        background-color: lightgray;
+      }
+      div#controls {
+        float: right;
+        margin: 50px;
+      }
+      .score {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 30px;
+        fill: lightcoral;
+      }
+      .rockBullet {
+        fill: pink;
+      }
+    </style>
+    <script src="./dist/spaceinvaders.js"></script>
+  </head>
+  <body>
+    <h1>Space Invaders</h1>
+    <h3>
+      (a) Instructions: Press the key => to move the ship right and the key <=
+      to move the ship left and space key to shoot the rocks.
+    </h3>
+    <h3>
+      (b) My implementation for this game is that it will automatically restart
+      once all the rocks is being shoot or the ship is being shoot by the rock
+    </h3>
+
+    <!-- <h3 id="playerScore">Player score : 0</h3> -->
+    <svg
+      id="svgCanvas"
+      width="600"
+      height="600"
+      style="background-color: black"
+      ;
+    >
+      <text id="playerScore" x="15" y="35" class="score"></text>
+
+      <rect
+        id="Shield1"
+        height="60"
+        width="100"
+        style="stroke: darkblue; fill: deepskyblue"
+        transform="translate(50,450)"
+      ></rect>
+
+      <rect
+        id="Shield2"
+        height="60"
+        width="100"
+        style="stroke: darkblue; fill: violet"
+        transform="translate(250,450)"
+      ></rect>
+
+      <rect
+        id="Shield3"
+        height="60"
+        width="100"
+        style="stroke: darkblue; fill: purple"
+        transform="translate(450,450)"
+      ></rect>
+
+      <g id="ship" transform="translate(300,550)">
+        <polygon
+          class="booster hidden"
+          id="thruster"
+          points="-3,20 0,35 3,20"
+        ></polygon>
+        <polygon
+          class="booster hidden"
+          id="leftThrust"
+          points="2,-10 15,-12 2,-14"
+        ></polygon>
+
+        <polygon
+          class="booster hidden"
+          id="rightThrust"
+          points="-2,-10 -15,-12 -2,-14"
+        ></polygon>
+
+        <polygon class="ship" points="-15,20 15,20 0,-20"></polygon>
+      </g>
+    </svg>
+    <div id="controls">
+      <h2>Controls:</h2>
+      <table>
+        <!-- <tr><td>Thrust</td><td>Up Arrow</td></tr> -->
+        <tr>
+          <td>Turn Left</td>
+          <td><div id="ArrowLeft" class="key">&#8678;</div></td>
+        </tr>
+        <tr>
+          <td>Turn Right</td>
+          <td><div id="ArrowRight" class="key">&#8680;</div></td>
+        </tr>
+
+        <tr>
+          <td>Fire</td>
+          <td><div id="Space" class="key" style="width: 50px">Space</div></td>
+        </tr>
+        <tr>
+          <td>Restart Game Half Way</td>
+          <td><div class="key" style="width: 60px">F5</div></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
